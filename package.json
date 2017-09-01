@@ -1,0 +1,19 @@
+{
+  "name": "teamapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.4",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "glob": "^7.1.1",
+    "mongoose": "^4.7.2"
+  }
+}
