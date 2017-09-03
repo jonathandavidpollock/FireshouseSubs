@@ -1,5 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const router = express.Router();
+
+// Importing Models
+const Product = mongoose.model('Product');
+const Order = mongoose.model('Order');
 
 module.exports = function(app){
 	app.use('/api/v1', router);
@@ -27,7 +32,12 @@ module.exports = function(app){
   //
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.post('/order', (req, res) => {
-
+    console.log('Create NEW Order:', req.body);
+    const newOrder = new Order(req.body);
+    newOrder.save(function(err, order){
+      if(err) return res.send(err);
+      res.json(order);
+    })
   })
 
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
