@@ -46,7 +46,7 @@ module.exports = function(app){
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.put('/order/:orderID', (req, res) => {
     console.log("Update Order now: ", req.body )
-    Order.findOneAndUpdate({_id: req.params.orderID}, req.body, (err, order) => {
+    Order.findOneAndUpdate({_id: req.params.orderID}, req.body,{ new: true }, (err, order) => {
       res.json(order);
     })
   })
