@@ -9,17 +9,31 @@ const Order = mongoose.model('Order');
 module.exports = function(app){
 	app.use('/api/v1', router);
 
-
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Get Orders
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.get('/order', (req, res) => {
-    order.all((err) => {
-      res.status(500).json(err); // errorCallback
-    }, (data) => {
-      res.status(200).json(data); // successCallback
+    // Order.find((err,order) => {
+    //     console.log("!!!! PRODUCT ID !!!! ", order[0].product_id)
+    //     for
+    //     res.json(order);
+    //   })
+    //   
+      // Order.find((err, order) => {
+      //   let tempIds = []
+      //   order.forEach((id) => {
+      //     console.log("BEFORE------> ", tempIds);
+      //     tempIds.push(id.product_id);
+      //     console.log("AFTER-----> ", tempIds);
+      //   })
+      //   console.log("Here -----> ", tempIds);
+      //   Product.find({ "product_id" : { id: { $in : tempIds } } },
+      //     (err, r)=>{
+      //       console.log(r)
+      //     })
+      
     });
-  });
+
 
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   //
@@ -32,8 +46,12 @@ module.exports = function(app){
   //
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.post('/order', (req, res) => {
-    console.log('Create NEW Order:', req.body);
+    console.log('Create NEW Order:', req.body.product_id);
     const newOrder = new Order(req.body);
+    // newOrder.product_id.push(req.body.product_id)
+    // req.body.product_id.forEach((id) => {
+    //   newOrder.product_id.push(id)
+    // })
     newOrder.save(function(err, order){
       if(err) return res.send(err);
       res.json(order);
