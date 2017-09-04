@@ -25,11 +25,16 @@ module.exports = function(app){
   //
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.get('/order/:orderID', (req, res) => {
-
+    const reqBody = req.body;
+    order.one(req.body, (err) => {
+      res.status(500).json(err); // errorCallback
+    }, (data) => {
+      res.status(200).json(data); // successCallback
+    });
   })
 
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-  //
+  // Create New Order
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.post('/order', (req, res) => {
     console.log('Create NEW Order:', req.body);
@@ -44,14 +49,26 @@ module.exports = function(app){
   //
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.put('/order/:orderID', (req, res) => {
-
+    const reqBody = req.body;
+    reqBody.id = req.params.id;
+    order.update(req.body, (err) => {
+      res.status(500).json(err); // errorCallback
+    }, (data) => {
+      res.status(200).json(data); // successCallback
+    });
   })
 
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-  // 
+  //
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.delete('/order/:orderID', (req, res) => {
-
+    const reqBody = req.body;
+    reqBody.id = req.params.id;
+    order.remove(req.body, (err) => {
+      res.status(500).json(err); // errorCallback
+    }, (data) => {
+      res.status(200).json(data); // successCallback
+    });
   })
 
   return router;
