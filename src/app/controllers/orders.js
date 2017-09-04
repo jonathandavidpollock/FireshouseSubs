@@ -48,7 +48,6 @@ module.exports = function(app){
     console.log("Update Order now: ", req.body )
     Order.findOneAndUpdate({_id: req.params.orderID}, req.body,{ new: true }, (err, order) => {
       res.json(order);
-      Order.update
     })
   })
 
