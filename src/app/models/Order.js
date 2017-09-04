@@ -5,38 +5,33 @@ var orderSchema = mongoose.Schema({
   total_price: {type: Number}
 })
 
-orderSchema.pre('save', function(next) {
-    const Product = mongoose.model('Product')
-    
+const getTotalPrice = function(next) {
+  const Product = mongoose.model('Product')
+  
 
   if (this.product_id.length === 0) {
     this.total_price = 0
     next()
   }
-  
+
   let totalPrice = 0;
 
-  // console.log('products arr[]', this.product_id)
   this.product_id.forEach((id) => {
 
-   Product.findById(id, (err, product)=>{
-    err ? console.log('err--', err ) : console.log('product--', product)
-    // console.log('price$$$$', product[0].price)
-    totalPrice += product.price
+    Product.findById(id, (err, product) =>{
+      err ? console.log('err--', err ) : console.log('product--', product)
+      totalPrice += product.price
 
-    console.log('💵 TOTAL PRICE', totalPrice )
-    // this.total_price = 0
-    this.total_price = totalPrice.toFixed(2);
-    
-  }).then( function(){    
-    next()
+      console.log('💵 TOTAL PRICE', totalPrice )
+      this.total_price = totalPrice.toFixed(2);
+      
+    }).then( function(){    
+      next()
+    })
   })
-   
+}
 
-  })
-
-
- 
-})
+orderSchema.pre('save', getTotalPrice)
+orderSchema.pre('update', getTotalPrice)
 
 module.exports = mongoose.model('Order', orderSchema)
