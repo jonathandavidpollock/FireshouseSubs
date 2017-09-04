@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var orderSchema = mongoose.Schema({
   product_id: [{type:  mongoose.Schema.Types.ObjectId, ref: 'Product'}],
-  total_price: {type: Number}
+  total_price: {type: Number, default: 0}
 })
 
 const getTotalPrice = function(next) {
@@ -14,18 +14,41 @@ const getTotalPrice = function(next) {
     next()
   }
 
-  let totalPrice = 0;
+  // let tempTotal = 0;
 
   this.product_id.forEach((id) => {
 
+    // ------- WIP ---------
+    // let query = Product.findById(id)
+
+    // query.then((product) =>{
+    //   // err ? console.log('err--', err ) : console.log('product--', product)
+    //   console.log('product in then----------->', product)    
+    //   totalPrice += product.price 
+    //   console.log('💵 TOTAL PRICE', totalPrice )
+    //   this.total_price = totalPrice.toFixed(2)
+      
+    // })
+
+    // query.then(function (product) {
+    //   next()  
+    // })
+    // ------- WIP ---------
+
+
+    
     Product.findById(id, (err, product) =>{
       err ? console.log('err--', err ) : console.log('product--', product)
-      totalPrice += product.price
+      this.total_price += product.price
 
-      console.log('💵 TOTAL PRICE', totalPrice )
-      this.total_price = totalPrice.toFixed(2);
+      // console.log('💵 tempTotal', tempTotal )
+      console.log('💵 total_price', this.total_price )
       
-    }).then( function(){    
+      
+    }).then( () => {   
+      console.log('💵 💵 💵 total_price', this.total_price )      
+    }).then( ()=> {
+      console.log('!!!!!!SAVING!!!!!') 
       next()
     })
   })
