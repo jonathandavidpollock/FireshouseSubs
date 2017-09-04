@@ -7,14 +7,16 @@ var orderSchema = mongoose.Schema({
 
 orderSchema.pre('save', function(next) {
   const Product = mongoose.model('Product')
-  
-  if (arrId.length === 0) {
+    
+
+  if (product_id.length === 0) {
     this.total_price = 0
+    next()
   }
   
   let totalPrice = 0
 
-  arrId.forEach((id) => {
+  product_id.forEach((id) => {
    let prod = new Product()
    prod.findById(id, (product)=>{
     totalPrice += product.price
