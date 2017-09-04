@@ -12,33 +12,20 @@ module.exports = function(app){
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Get Orders
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-  router.get('/order', (req, res) => {
-    // Order.find((err,order) => {
-    //     console.log("!!!! PRODUCT ID !!!! ", order[0].product_id)
-    //     for
-    //     res.json(order);
-    //   })
-    //   
-      // Order.find((err, order) => {
-      //   let tempIds = []
-      //   order.forEach((id) => {
-      //     console.log("BEFORE------> ", tempIds);
-      //     tempIds.push(id.product_id);
-      //     console.log("AFTER-----> ", tempIds);
-      //   })
-      //   console.log("Here -----> ", tempIds);
-      //   Product.find({ "product_id" : { id: { $in : tempIds } } },
-      //     (err, r)=>{
-      //       console.log(r)
-      //     })
-      
+  router.get('/order', (req, res) => {    
+    Order.find()
+      .populate('product_id') 
+      .exec(function(err, product){
+        res.json(product)
+      });
     });
 
-
-  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-  //
-  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.get('/order/:orderID', (req, res) => {
+    // console.log(req.params.orderID)
+    Order.findById(req.params.orderID, (err, docs) => {
+      console.log("DOCS REURNED--- ",docs)
+      res.json(docs)
+    }).populate('product_id') 
 
   })
 
@@ -47,11 +34,8 @@ module.exports = function(app){
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.post('/order', (req, res) => {
     console.log('Create NEW Order:', req.body.product_id);
-    const newOrder = new Order(req.body);
-    // newOrder.product_id.push(req.body.product_id)
-    // req.body.product_id.forEach((id) => {
-    //   newOrder.product_id.push(id)
-    // })
+    const newOrder = new Order(req.body)
+    
     newOrder.save(function(err, order){
       if(err) return res.send(err);
       res.json(order);
@@ -66,10 +50,13 @@ module.exports = function(app){
   })
 
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-  // 
+  // Deleting by the orderID.
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.delete('/order/:orderID', (req, res) => {
-
+    Order.remove({_id: req.params.orderID}, (err) => {
+      console.log("DELETE THIS NOW!!!! ", req.params.orderID )
+      res.sendStatus(200);
+    })
   })
 
   return router;
