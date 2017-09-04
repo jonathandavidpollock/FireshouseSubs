@@ -11,7 +11,7 @@ module.exports = (app) => {
 
 
   const models = glob.sync(__dirname + '/models/*.js')
-  console.log(models)
+  console.log("models!!!!!!->>> ",models)
   models.forEach( (modelFileName) => {
     require(modelFileName)
   });
