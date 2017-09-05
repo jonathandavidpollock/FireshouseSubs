@@ -104,7 +104,7 @@ To test if the api is working use [Postman](https://www.getpostman.com/). The pr
 
 ![postman post example](http://image.ibb.co/mJPMMv/Screen_Shot_2017_09_05_at_4_30_15_PM.png "Postman Post Example")
 
-This should be the output after creating a new order as you can see in the picture above. In the picture above we added to products to the order. 
+This should be the output after creating a new order as you can see in the picture above. In the picture above we added 2 products to the order. 
 
 ``` 
 {
