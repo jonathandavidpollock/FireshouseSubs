@@ -23,6 +23,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante ultrices, f
 
 ## How to Operate the Application
 
+A quick note you are able to populate the database with fake product data. See the instructions [Seeder.md](seeder.md)
+
 ### Routes
 
 #### HTTP Request
@@ -100,7 +102,7 @@ This route is to create a new order. To create a new order you need to add produ
 
 To test if the api is working use [Postman](https://www.getpostman.com/). The product\_id is needed to create the order. You can add many product\_id's to one order. As you see below.
 
-![postman post example](http://ibb.co/ei9XTa "Postman Post Example")
+![postman post example](http://image.ibb.co/mJPMMv/Screen_Shot_2017_09_05_at_4_30_15_PM.png "Postman Post Example")
 
 This should be the output after creating a new order as you can see in the picture above. In the picture above we added to products to the order. 
 
@@ -115,7 +117,7 @@ This should be the output after creating a new order as you can see in the pictu
     ]
 }
 ```
-##### Put
+##### Update
 
 `http://localhost:3000/api/v1/order/orderID`
 
@@ -125,7 +127,7 @@ This route is to update a order. All you need to do is pass the id of the order 
 
 You can also test this using [Postman](https://www.getpostman.com/). Below is a example of how to update a order in postman. We are using the same order as the one we just created. We are adding to more products to the order. The product\_id array now has 4 products in it.
 
-![postman update example](http://ibb.co/f3uJZF "Postman Put Example")
+![postman update example](http://image.ibb.co/icDZ8a/Screen_Shot_2017_09_05_at_4_43_38_PM.png "Postman Put Example")
 
 ##### Delete
 
@@ -137,7 +139,7 @@ This route is to delete a order. All you need to do is pass the id of the order 
 
 You can also test this using [Postman](https://www.getpostman.com/). Below is a example of how to delete a order in postman. We are using the same order as the one we just created and updated. We pass in the order id and send the request. We then get a response back for the a api `OK`. The order has now been deleted.
 
-![postman delete example](http://ibb.co/cX9wMv "Postman Delete Example")
+![postman delete example](http://image.ibb.co/kOqgoa/Screen_Shot_2017_09_05_at_4_47_54_PM.png "Postman Delete Example")
 
 
 
