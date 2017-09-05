@@ -35,7 +35,7 @@ module.exports = function(app){
   router.post('/order', (req, res) => {
     console.log('Create NEW Order:', req.body.product_id);
     const newOrder = new Order(req.body)
-    newOrder.save(function(err, order){
+    newOrder.save((err, order) => {
       if(err) return res.send(err);
       res.json(order);
     })
@@ -46,7 +46,7 @@ module.exports = function(app){
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.put('/order/:orderID', (req, res) => {
     console.log("Update Order now: ", req.body )
-    Order.findOneAndUpdate({_id: req.params.orderID}, req.body, (err, order) => {
+    Order.findOneAndUpdate({_id: req.params.orderID}, req.body,{ new: true }, (err, order) => {
       res.json(order);
     })
   })
