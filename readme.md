@@ -125,7 +125,7 @@ This route is to update a order. All you need to do is pass the id of the order 
 
 `http://localhost:3000/api/v1/order/59af09321dfab37fa2a6a4ca`
 
-You can also test this using [Postman](https://www.getpostman.com/). Below is a example of how to update a order in postman. We are using the same order as the one we just created. We are adding to more products to the order. The product\_id array now has 4 products in it.
+You can also test this using [Postman](https://www.getpostman.com/). Below is a example of how to update a order in Postman. We are using the same order as the one we just created. We are adding 2 more products to the order. The product\_id array now has 4 products in it.
 
 ![postman update example](http://image.ibb.co/icDZ8a/Screen_Shot_2017_09_05_at_4_43_38_PM.png "Postman Put Example")
 
@@ -137,7 +137,7 @@ This route is to delete a order. All you need to do is pass the id of the order 
  
 `http://localhost:3000/api/v1/order/59af09321dfab37fa2a6a4ca`
 
-You can also test this using [Postman](https://www.getpostman.com/). Below is a example of how to delete a order in postman. We are using the same order as the one we just created and updated. We pass in the order id and send the request. We then get a response back for the a api `OK`. The order has now been deleted.
+You can also test this using [Postman](https://www.getpostman.com/). Below is a example of how to delete a order in Postman. We are using the same order as the one we just created and updated. We pass in the order id and send the request. We then get a response back from the api `OK`. The order has now been deleted.
 
 ![postman delete example](http://image.ibb.co/kOqgoa/Screen_Shot_2017_09_05_at_4_47_54_PM.png "Postman Delete Example")
 
