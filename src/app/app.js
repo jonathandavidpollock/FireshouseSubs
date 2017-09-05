@@ -2,6 +2,8 @@ const bodyParser = require('body-parser')
 const glob = require('glob')
 const cors = require('cors')
 
+var db = require('./db')
+
 module.exports = (app) => {
   app.use(cors())
   app.use(bodyParser.urlencoded({extended: true}))
