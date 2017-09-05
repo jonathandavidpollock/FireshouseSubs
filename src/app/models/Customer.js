@@ -1,4 +1,5 @@
 var mongoose = require('mongoose')
+
 var customerSchema = mongoose.Schema({
   client_name: String,
 })
