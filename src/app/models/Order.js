@@ -10,6 +10,7 @@ const getTotalPrice = function(next) {
   
 
   if (this.product_id.length === 0) {
+  	console.log("ARRAY IS EMPTY!")
     this.total_price = 0
     next()
   }
@@ -18,25 +19,6 @@ const getTotalPrice = function(next) {
 
   this.product_id.forEach((id) => {
 
-    // ------- WIP ---------
-    // let query = Product.findById(id)
-
-    // query.then((product) =>{
-    //   // err ? console.log('err--', err ) : console.log('product--', product)
-    //   console.log('product in then----------->', product)    
-    //   totalPrice += product.price 
-    //   console.log('💵 TOTAL PRICE', totalPrice )
-    //   this.total_price = totalPrice.toFixed(2)
-      
-    // })
-
-    // query.then(function (product) {
-    //   next()  
-    // })
-    // ------- WIP ---------
-
-
-    
     Product.findById(id, (err, product) =>{
       err ? console.log('err--', err ) : console.log('product--', product)
       this.total_price += product.price
@@ -44,11 +26,12 @@ const getTotalPrice = function(next) {
       // console.log('💵 tempTotal', tempTotal )
       console.log('💵 total_price', this.total_price )
       
-      
     }).then( () => {   
       console.log('💵 💵 💵 total_price', this.total_price )      
     }).then( ()=> {
-      console.log('!!!!!!SAVING!!!!!') 
+    	console.log('******* total_price', this.total_price ) 
+      console.log('!!!!!!--SAVING--!!!!!') 
+      console.log('!!!!!!--NEXT--!!!!!') 
       next()
     })
   })
