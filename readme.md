@@ -19,7 +19,30 @@ We recommend installing the package nodemon to auto-refresh your browser after s
 If you have any issues, please submit an issue here on Github.
 
 ## Setup for a VPS
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante ultrices, feugiat metus et, luctus lectus. Nunc elementum pulvinar auctor. Praesent a nibh non libero porttitor laoreet tristique ut turpis. In hac habitasse platea dictumst. Nulla at condimentum orci, vel egestas libero. Integer fringilla placerat nisl, eget rhoncus magna interdum ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam a odio libero. Nullam vehicula libero vel lorem lobortis feugiat. In ac nulla sit amet nunc sollicitudin fermentum. Etiam sed nisi orci. Duis tincidunt eu turpis eu semper. Donec sed scelerisque turpis. Fusce eu venenatis nibh, id posuere lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+### Initial Server Setup with Ubuntu 16.04
+
+We are assuming you alrady have Ubuntu setup. If not here is a quick tutorial to get started. 
+
+[Server Setup](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04)
+
+### Install Nginx on Ubuntu 16.04
+
+This is a guide on how to install Nginx on your server. 
+
+[Install Nginx](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04)
+
+##### How To Secure Nginx with Let's Encrypt on Ubuntu 16.04
+
+Note this is Recommended  but isn't necessary at this time. It is up to you if you want to do it now or later. If you want to go ahead and do it here is a quick [guide](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04).
+
+### Set Up a Node.js Application for Production on Ubuntu 16.04
+
+This is the last part left to do. Follow this guide and it will help you get your node enviroment setup on your server. 
+
+[Setup Node.js](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-16-04)
+
+
 
 ## How to Operate the Application
 
