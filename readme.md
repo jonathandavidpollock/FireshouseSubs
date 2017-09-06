@@ -167,4 +167,6 @@ You can also test this using [Postman](https://www.getpostman.com/). Below is a 
 
 
 ## Post Mortem
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante ultrices, feugiat metus et, luctus lectus. Nunc elementum pulvinar auctor. Praesent a nibh non libero porttitor laoreet tristique ut turpis. In hac habitasse platea dictumst. Nulla at condimentum orci, vel egestas libero. Integer fringilla placerat nisl, eget rhoncus magna interdum ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam a odio libero. Nullam vehicula libero vel lorem lobortis feugiat. In ac nulla sit amet nunc sollicitudin fermentum. Etiam sed nisi orci. Duis tincidunt eu turpis eu semper. Donec sed scelerisque turpis. Fusce eu venenatis nibh, id posuere lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+This project took approximately four days to complete with a team of four developers. One developer focused on CRUD. One focused on  routes. One focused on documentation. This project pushed our knowledge of Node.js and our first time at deploying a Node.js application. The largest hurdle was the Post request. There was a problem with Mongo not syncing perfectly with Javascript. We believe it was because Javascript was running to fast, even when we used promises. 
+
+This project was also our first large team project. It challenged our knowledge of Git. We all worked remotely. We learned the a lot about how to do work remote. All in all it was a valuable learning experience. 
