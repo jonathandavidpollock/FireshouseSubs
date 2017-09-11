@@ -20,6 +20,17 @@ module.exports = function(app){
       });
     });
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  // Get Products
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  router.get('/products', (req, res) => {
+    console.log("Getting all products! 🙌")
+    Product.find()
+    .exec((err, products) => {
+      res.json(products)
+    })
+  })
+
   router.get('/order/:orderID', (req, res) => {
     // console.log(req.params.orderID)
     Order.findById(req.params.orderID, (err, docs) => {
