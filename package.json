@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "",
-    "preinstall": "./src/seed/seeder.js"
+    "postinstall": "node ./src/seed/seeder.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +15,6 @@
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "glob": "^7.1.1",
-    "mongoose": "^4.11.9",
-
+    "mongoose": "^4.11.9"
   }
 }
