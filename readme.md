@@ -22,7 +22,7 @@ If you have any issues, please submit an issue here on Github.
 
 Install and start mongodb.
 
-``npm install mongodb`` then ``npm i`` to make sure everything is installed.
+``npm install mongodb`` then ``npm i`` to make sure everything is installed. This will also populate the database with 3 sample products.
 
 then use ``mongod`` to make sure the mongo is running.
 
@@ -62,8 +62,6 @@ This is the last part left to do. Follow this guide and it will help you get you
 
 
 ## How to Operate the Application
-
-A quick note you are able to populate the database with fake product data. See the instructions [Seeder.md](seeder.md)
 
 ### Routes
 
