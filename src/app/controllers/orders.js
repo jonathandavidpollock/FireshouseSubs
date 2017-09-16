@@ -44,16 +44,27 @@ module.exports = function(app){
   // Create New Order
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.post('/order', (req, res) => {
-    console.log('Create NEW Order:', req.body.product_id);
+    // console.log('Create NEW Order:', req.body);
     const newOrder = new Order(req.body)
+    let total = []
+    req.body.product_id.forEach((id) => {
+      Product.findById(id, (err, product) => {
+        // console.log(product.price);
+        total.push(product.price);
+        // console.log("Before TOTAL-----> ", total)
+      })
+    })
     newOrder.save((err, order) => {
       if(err) return res.send(err);
+      console.log(total)
+      order.total_price = newOrder.getTotalPrice(total)
+      console.log(order);
       res.json(order);
     })
   })
 
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-  //
+  // Getting a order by Id and updating it.
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   router.put('/order/:orderID', (req, res) => {
     console.log("Update Order now: ", req.body )
