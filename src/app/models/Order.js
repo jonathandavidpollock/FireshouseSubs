@@ -17,22 +17,22 @@ const getTotalPrice = function(next) {
 
   // let tempTotal = 0;
 
-  this.product_id.forEach((id) => {
-
+  this.product_id.forEach((id, i) => {
+    
     Product.findById(id, (err, product) =>{
-      err ? console.log('err--', err ) : console.log('product--', product)
-      this.total_price += product.price
 
-      // console.log('💵 tempTotal', tempTotal )
-      console.log('💵 total_price', this.total_price )
+      this.total_price += product.price
+      console.log('💵 total_price', this.total_price ) 
+
+      console.log('i', i, id)
+      if (i+1 ===  this.product_id.length) {
+        console.log('i+1:', i+1)
+        console.log('this.product_id.length', this.product_id.length)
+        // this.total_price = tempTotal
+        console.log('next!!!!!!! ->>>>', this.total_price)
+        next()
+      }  
       
-    }).then( () => {   
-      console.log('💵 💵 💵 total_price', this.total_price )      
-    }).then( ()=> {
-    	console.log('******* total_price', this.total_price ) 
-      console.log('!!!!!!--SAVING--!!!!!') 
-      console.log('!!!!!!--NEXT--!!!!!') 
-      next()
     })
   })
 }
