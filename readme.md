@@ -1,10 +1,10 @@
-# Overview of Application 
+# Overview of Application
 
 We have credited an api for purchasing items from Firehouse Subs. We are currently on Version 1 of this api. Through the collection of routes below you can create, read, update, and delete an order. You will need to use AJAX as some of the supported method types are not handled natively by browsers. See our documentation below to learn more.
 
-## Local Install For Devlopers 
+## Local Install For Devlopers
 
-Set up for local development is easy. We use NPM as our package manager to maintain our packages. To install this application on your local machine, run the following commands. 
+Set up for local development is easy. We use NPM as our package manager to maintain our packages. To install this application on your local machine, run the following commands.
 
 ```git clone https://github.com/jonathandavidpollock/FireshouseSubs.git```
 
@@ -18,17 +18,34 @@ We recommend installing the package nodemon to auto-refresh your browser after s
 
 If you have any issues, please submit an issue here on Github.
 
+## MongoDB
+
+Install and start mongodb.
+
+``npm install mongodb`` then ``npm i`` to make sure everything is installed.
+
+then use ``mongod`` to make sure the mongo is running.
+
+## Env
+
+Create a .env file in the local directory.
+
+```
+MONGO_HOST=localhost
+MONGO_DATABASE=yourDatabase
+```
+
 ## Setup for a VPS
 
 ### Initial Server Setup with Ubuntu 16.04
 
-We are assuming you alrady have Ubuntu setup. If not here is a quick tutorial to get started. 
+We are assuming you alrady have Ubuntu setup. If not here is a quick tutorial to get started.
 
 [Server Setup](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04)
 
 ### Install Nginx on Ubuntu 16.04
 
-This is a guide on how to install Nginx on your server. 
+This is a guide on how to install Nginx on your server.
 
 [Install Nginx](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04)
 
@@ -38,7 +55,7 @@ Note this is Recommended  but isn't necessary at this time. It is up to you if y
 
 ### Set Up a Node.js Application for Production on Ubuntu 16.04
 
-This is the last part left to do. Follow this guide and it will help you get your node enviroment setup on your server. 
+This is the last part left to do. Follow this guide and it will help you get your node enviroment setup on your server.
 
 [Setup Node.js](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-16-04)
 
@@ -52,12 +69,12 @@ A quick note you are able to populate the database with fake product data. See t
 
 #### HTTP Request
 ##### Get
-This is the route that needs to be hit to get all orders from the database. The example down below is what the data will look like for the return. 
+This is the route that needs to be hit to get all orders from the database. The example down below is what the data will look like for the return.
 
 `http://localhost:3000/api/v1/order`
 
 
-``` 
+```
 [
     {
         "_id": "59aeb8c9cd2f6072acc0d86f",
@@ -94,14 +111,14 @@ This is the route that needs to be hit to get all orders from the database. The 
 ]
 ```
 ##### Get Order by Id
-This route is getting an order by a single Id. The example down below is what the data will look like for the return. 
+This route is getting an order by a single Id. The example down below is what the data will look like for the return.
 
 `http://localhost:3000/api/v1/order/:orderID`
 
 `http://localhost:3000/api/v1/order/59aeb8c9cd2f6072acc0d86`
 
 
-``` 
+```
 {
     "_id": "59aeb8c9cd2f6072acc0d86f",
     "__v": 0,
@@ -127,9 +144,9 @@ To test if the api is working use [Postman](https://www.getpostman.com/). The pr
 
 ![postman post example](http://image.ibb.co/mJPMMv/Screen_Shot_2017_09_05_at_4_30_15_PM.png "Postman Post Example")
 
-This should be the output after creating a new order as you can see in the picture above. In the picture above we added 2 products to the order. 
+This should be the output after creating a new order as you can see in the picture above. In the picture above we added 2 products to the order.
 
-``` 
+```
 {
     "__v": 0,
     "_id": "59af09321dfab37fa2a6a4ca",
@@ -144,7 +161,7 @@ This should be the output after creating a new order as you can see in the pictu
 
 `http://localhost:3000/api/v1/order/orderID`
 
-This route is to update a order. All you need to do is pass the id of the order you want to update. For Example: 
+This route is to update a order. All you need to do is pass the id of the order you want to update. For Example:
 
 `http://localhost:3000/api/v1/order/59af09321dfab37fa2a6a4ca`
 
@@ -157,7 +174,7 @@ You can also test this using [Postman](https://www.getpostman.com/). Below is a 
 `http://localhost:3000/api/v1/order/orderID`
 
 This route is to delete a order. All you need to do is pass the id of the order you want to delete. For Example:
- 
+
 `http://localhost:3000/api/v1/order/59af09321dfab37fa2a6a4ca`
 
 You can also test this using [Postman](https://www.getpostman.com/). Below is a example of how to delete a order in Postman. We are using the same order as the one we just created and updated. We pass in the order id and send the request. We then get a response back from the api `OK`. The order has now been deleted.
@@ -167,6 +184,6 @@ You can also test this using [Postman](https://www.getpostman.com/). Below is a 
 
 
 ## Post Mortem
-This project took approximately four days to complete with a team of four developers. One developer focused on CRUD. One focused on  routes. One focused on documentation. This project pushed our knowledge of Node.js and our first time at deploying a Node.js application. The largest hurdle was the Post request. There was a problem with Mongo not syncing perfectly with Javascript. We believe it was because Javascript was running to fast, even when we used promises. 
+This project took approximately four days to complete with a team of four developers. One developer focused on CRUD. One focused on  routes. One focused on documentation. This project pushed our knowledge of Node.js and our first time at deploying a Node.js application. The largest hurdle was the Post request. There was a problem with Mongo not syncing perfectly with Javascript. We believe it was because Javascript was running to fast, even when we used promises.
 
-This project was also our first large team project. It challenged our knowledge of Git. We all worked remotely. We learned the a lot about how to do work remote. All in all it was a valuable learning experience. 
+This project was also our first large team project. It challenged our knowledge of Git. We all worked remotely. We learned the a lot about how to do work remote. All in all it was a valuable learning experience.
