@@ -1,9 +1,3 @@
-const NODE_ENV = process.env.NODE_ENV || 'development'
-
-if(NODE_ENV === 'development') {
-  require('dotenv').load()
-}
-
 const express = require('express')
 const app = express()
 
