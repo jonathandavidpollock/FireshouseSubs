@@ -68,10 +68,25 @@ A quick note you are able to populate the database with fake product data. See t
 ### Routes
 
 #### HTTP Request
-##### Get
+
+##### Base URL
+
+`https://api-firehouse.herokuapp.com/api/v1`
+
+When this URL is hit you will see "Hello Word" in the browser. 
+This can be a quick check to see if you are connecting to the API. 
+If you see "Hello World" you are set to go.
+
+##### Get Products
+
+`https://api-firehouse.herokuapp.com/api/v1/products`
+
+This is getting all products from the database. To see all the products in the database run the command above. The product id's are needed to make a new order.  
+
+##### Get Orders
 This is the route that needs to be hit to get all orders from the database. The example down below is what the data will look like for the return.
 
-`http://localhost:3000/api/v1/order`
+`https://api-firehouse.herokuapp.com/api/v1/order`
 
 
 ```
@@ -115,7 +130,7 @@ This route is getting an order by a single Id. The example down below is what th
 
 `http://localhost:3000/api/v1/order/:orderID`
 
-`http://localhost:3000/api/v1/order/59aeb8c9cd2f6072acc0d86`
+`https://api-firehouse.herokuapp.com/api/v1/order/59aeb8c9cd2f6072acc0d86`
 
 
 ```
@@ -135,7 +150,7 @@ This route is getting an order by a single Id. The example down below is what th
 ```
 ##### Post
 
-`http://localhost:3000/api/v1/order`
+`https://api-firehouse.herokuapp.com/api/v1/order`
 
 This route is to create a new order. To create a new order you need to add product items to the product\_id array. The product_id array is a field in the Order Schema. Here is a example down below.
 
@@ -159,11 +174,11 @@ This should be the output after creating a new order as you can see in the pictu
 ```
 ##### Update
 
-`http://localhost:3000/api/v1/order/orderID`
+`https://api-firehouse.herokuapp.com/api/v1/order/orderID`
 
 This route is to update a order. All you need to do is pass the id of the order you want to update. For Example:
 
-`http://localhost:3000/api/v1/order/59af09321dfab37fa2a6a4ca`
+`https://api-firehouse.herokuapp.com/api/v1/order/59af09321dfab37fa2a6a4ca`
 
 You can also test this using [Postman](https://www.getpostman.com/). Below is a example of how to update a order in Postman. We are using the same order as the one we just created. We are adding 2 more products to the order. The product\_id array now has 4 products in it.
 
@@ -171,11 +186,11 @@ You can also test this using [Postman](https://www.getpostman.com/). Below is a 
 
 ##### Delete
 
-`http://localhost:3000/api/v1/order/orderID`
+`https://api-firehouse.herokuapp.com/api/v1/order/orderID`
 
 This route is to delete a order. All you need to do is pass the id of the order you want to delete. For Example:
 
-`http://localhost:3000/api/v1/order/59af09321dfab37fa2a6a4ca`
+`https://api-firehouse.herokuapp.com/api/v1/order/59af09321dfab37fa2a6a4ca`
 
 You can also test this using [Postman](https://www.getpostman.com/). Below is a example of how to delete a order in Postman. We are using the same order as the one we just created and updated. We pass in the order id and send the request. We then get a response back from the api `OK`. The order has now been deleted.
 
