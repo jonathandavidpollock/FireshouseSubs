@@ -11,7 +11,7 @@ if(NODE_ENV === 'development') {
   require('dotenv').load()
 }
 
-mongoose.connect('mongodb://'+ process.env.MONGO_HOST +'/'+ process.env.MONGO_DATABASE)
+mongoose.connect(process.env.MONGODB_URI)
 
 var products = [
   new Product({
