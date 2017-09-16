@@ -4,8 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "",
-    "postinstall": "src/seed/seeder.js"
+    "test": ""
   },
   "author": "",
   "license": "ISC",
