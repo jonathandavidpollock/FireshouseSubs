@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "",
-    "preinstall": "src/seed/seeder.js"
+    "postinstall": "src/seed/seeder.js"
   },
   "author": "",
   "license": "ISC",
