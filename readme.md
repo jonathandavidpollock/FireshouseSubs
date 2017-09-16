@@ -18,7 +18,7 @@ We recommend installing the package nodemon to auto-refresh your browser after s
 
 If you have any issues, please submit an issue here on Github.
 
-## MongoDB
+### MongoDB
 
 Install and start mongodb.
 
@@ -26,7 +26,7 @@ Install and start mongodb.
 
 then use ``mongod`` to make sure the mongo is running.
 
-## Env
+### Env
 
 Create a .env file in the local directory.
 
@@ -35,7 +35,7 @@ MONGO_HOST=localhost
 MONGO_DATABASE=yourDatabase
 ```
 
-## Setup for a VPS
+## Setup for a VPS (Virtual Private Server)
 
 ### Initial Server Setup with Ubuntu 16.04
 
