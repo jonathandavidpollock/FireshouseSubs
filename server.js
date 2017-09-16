@@ -9,7 +9,7 @@ const app = express()
 
 const port = 8080
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port , () => {
   console.log('Server on port: '+ port)
 })
 
